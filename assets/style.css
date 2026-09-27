@@ -252,3 +252,22 @@ footer.copy { color:var(--dim); font-size:13px; margin-top:40px; }
   .app-grid { grid-template-columns:1fr; }
   .app img { width:64px; height:64px; border-radius:15px; }
 }
+
+/* ==========================================================
+   성능 최적화 (맨 아래에 두세요)
+   ========================================================== */
+/* 1) 오로라: blur 필터 대신 부드러운 그라데이션 사용 → 가장 큰 개선 */
+.aurora { filter:none; opacity:.55; }
+.aurora span { will-change:transform; }
+.aurora span:nth-child(1){ background:radial-gradient(circle, rgba(99,102,241,.55) 0%, transparent 70%); }
+.aurora span:nth-child(2){ background:radial-gradient(circle, rgba(6,182,212,.45) 0%, transparent 70%); }
+.aurora span:nth-child(3){ background:radial-gradient(circle, rgba(236,72,153,.4) 0%, transparent 70%); }
+
+/* 2) 카드의 유리(흐림) 효과 제거 → 대신 살짝 진한 반투명 배경 */
+.box, .app, .ts, .facts > div, .stack-row, .pager a, .links a {
+  backdrop-filter:none !important; -webkit-backdrop-filter:none !important;
+}
+.box, .app, .facts > div, .stack-row { background:rgba(255,255,255,.055); }
+
+/* 3) 스크롤 시 오로라를 별도 레이어로 */
+.aurora { transform:translateZ(0); }
