@@ -82,7 +82,7 @@ const SECTIONS = [
     if (!/\.html(#.*)?$/.test(href) || href === current) return;
     e.preventDefault();
     document.body.classList.add('leaving');
-    setTimeout(() => { location.href = href; }, 260);
+    setTimeout(() => { location.href = href; }, 120);
   });
   window.addEventListener('pageshow', () => document.body.classList.remove('leaving'));
 })();
