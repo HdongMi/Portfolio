@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects | 김개발</title>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="projects.html">
+<div class="aurora"><span></span><span></span><span></span></div>
+<nav id="toc"></nav>
+
+<main class="page">
+  <div class="eyebrow">03 — Projects</div>
+  <h1 class="title">핵심 프로젝트</h1>
+  <p class="lead">대표 프로젝트 3개를 개요, 담당 역할, 문제 해결 과정 순서로 정리했습니다.</p>
+  <div class="proj-nav">
+    <a href="#p1">01 주문 시스템 MSA 전환</a>
+    <a href="#p2">02 실시간 알림 플랫폼</a>
+    <a href="#p3">03 tf-guard</a>
+  </div>
+
+  <!-- ─────────── PROJECT 01 ─────────── -->
+  <article class="project" id="p1">
+    <div class="p-no">PROJECT 01</div>
+    <h2>주문 시스템 MSA 전환</h2>
+    <p class="lead">트래픽 증가로 한계에 다다른 모놀리식 커머스 백엔드를 이벤트 기반 12개 서비스로 분리했습니다.</p>
+
+    <section class="sec">
+      <h3>프로젝트 개요</h3>
+      <div class="facts">
+        <div><small>기간</small><b>2023.03 – 2024.06</b></div>
+        <div><small>팀 구성</small><b>백엔드 6 · 인프라 2</b></div>
+        <div><small>역할</small><b>테크 리드</b></div>
+        <div><small>기여도</small><b>40%</b><div class="bar"><i style="width:40%"></i></div></div>
+      </div>
+    </section>
+    <section class="sec"><h3>사용 기술</h3><div class="tags"><span>Kotlin</span><span>Spring Boot</span><span>Kafka</span><span>MySQL</span><span>Redis</span><span>AWS EKS</span><span>Terraform</span></div></section>
+    <section class="sec">
+      <h3>주요 기능 및 담당 역할</h3>
+      <ul class="list">
+        <li>도메인 경계 설정(주문·결제·재고·배송)과 서비스 분리 로드맵 수립</li>
+        <li>Transactional Outbox 패턴으로 주문 이벤트 발행의 <b>정합성 보장</b></li>
+        <li>Strangler Fig 방식의 <b>무중단 점진 이관</b> 및 트래픽 섀도잉 검증</li>
+        <li>서비스별 SLO 정의, 분산 추적(OpenTelemetry) 도입</li>
+      </ul>
+    </section>
+    <section class="sec">
+      <h3>문제 해결 경험</h3>
+      <div class="trouble">
+        <div class="ts">
+          <div class="ts-head"><em>ISSUE 1</em>주문–재고 간 데이터 불일치</div>
+          <div class="ts-body">
+            <div class="ts-step"><b>문제</b><span>서비스 분리 후 DB 커밋과 Kafka 발행이 분리되어, 장애 시 재고가 차감되지 않은 주문이 하루 수십 건 발생</span></div>
+            <div class="ts-step"><b>시도</b><span>2PC는 성능 부담이 커서 제외하고, Outbox 테이블 + Debezium CDC로 이벤트 발행을 DB 트랜잭션에 묶음. 컨슈머는 멱등 키로 중복 처리 방지</span></div>
+            <div class="ts-step"><b>결과</b><span>불일치가 0건으로 수렴하고 수동 보정 작업이 사라짐</span></div>
+            <div class="ba"><span class="before">일 30건+</span>→<span class="after">0건</span><small>데이터 불일치</small></div>
+          </div>
+        </div>
+        <div class="ts">
+          <div class="ts-head"><em>ISSUE 2</em>세일 이벤트 시 주문 API 지연</div>
+          <div class="ts-body">
+            <div class="ts-step"><b>문제</b><span>타임세일 직후 재고 row에 락 경합이 몰려 p99 응답이 4초까지 증가</span></div>
+            <div class="ts-step"><b>시도</b><span>Redis Lua 스크립트로 재고 선차감 후 비동기 DB 반영, 요청 큐잉으로 DB 쓰기 평탄화</span></div>
+            <div class="ts-step"><b>결과</b><span>피크 TPS 3배 상황에서도 안정적인 응답 유지</span></div>
+            <div class="ba"><span class="before">p99 4.1s</span>→<span class="after">0.35s</span><small>주문 API 응답</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="sec"><h3>링크</h3><div class="links"><a href="#" target="_blank" rel="noopener">기술 블로그 회고 ↗</a><a href="#" target="_blank" rel="noopener">발표 자료 ↗</a></div></section>
+  </article>
+
+  <!-- ─────────── PROJECT 02 ─────────── -->
+  <article class="project" id="p2">
+    <div class="p-no">PROJECT 02</div>
+    <h2>실시간 알림 플랫폼</h2>
+    <p class="lead">서비스마다 따로 구현되어 있던 푸시·SMS·이메일 발송을 하나의 플랫폼으로 통합했습니다.</p>
+
+    <section class="sec">
+      <h3>프로젝트 개요</h3>
+      <div class="facts">
+        <div><small>기간</small><b>2021.09 – 2022.08</b></div>
+        <div><small>팀 구성</small><b>백엔드 3</b></div>
+        <div><small>역할</small><b>설계 · 핵심 개발</b></div>
+        <div><small>기여도</small><b>60%</b><div class="bar"><i style="width:60%"></i></div></div>
+      </div>
+    </section>
+    <section class="sec"><h3>사용 기술</h3><div class="tags"><span>Go</span><span>gRPC</span><span>Redis Streams</span><span>MySQL</span><span>FCM/APNs</span><span>Prometheus</span></div></section>
+    <section class="sec">
+      <h3>주요 기능 및 담당 역할</h3>
+      <ul class="list">
+        <li>채널 공통 발송 API(gRPC) 설계 및 템플릿 엔진 개발</li>
+        <li>우선순위 큐 기반 <b>발송 스케줄러</b> — 인증번호 등 긴급 알림 우선 처리</li>
+        <li>사용자별 수신 설정·야간 발송 제한 등 정책 엔진 구현</li>
+      </ul>
+    </section>
+    <section class="sec">
+      <h3>문제 해결 경험</h3>
+      <div class="trouble">
+        <div class="ts">
+          <div class="ts-head"><em>ISSUE 1</em>대량 마케팅 발송이 인증번호를 지연시킴</div>
+          <div class="ts-body">
+            <div class="ts-step"><b>문제</b><span>단일 큐 구조에서 수백만 건 마케팅 발송이 몰리면 인증 문자가 수 분씩 늦게 도착</span></div>
+            <div class="ts-step"><b>시도</b><span>Redis Streams를 우선순위별로 분리하고 워커 풀을 가중치 기반으로 배분, 외부 벤더 호출에 토큰 버킷 레이트 리미터 적용</span></div>
+            <div class="ts-step"><b>결과</b><span>대량 발송 중에도 긴급 알림 지연 없음</span></div>
+            <div class="ba"><span class="before">최대 3분</span>→<span class="after">2초 이내</span><small>인증 알림 도착 시간</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="sec"><h3>링크</h3><div class="links"><a href="#" target="_blank" rel="noopener">아키텍처 문서 ↗</a><a href="#" target="_blank" rel="noopener">발표 영상 ↗</a></div></section>
+  </article>
+
+  <!-- ─────────── PROJECT 03 ─────────── -->
+  <article class="project" id="p3">
+    <div class="p-no">PROJECT 03 · OPEN SOURCE</div>
+    <h2>tf-guard</h2>
+    <p class="lead">Terraform PR에서 인프라 비용 증가와 보안 설정 누락을 자동으로 찾아 코멘트로 남겨주는 CLI 도구입니다.</p>
+
+    <section class="sec">
+      <h3>프로젝트 개요</h3>
+      <div class="facts">
+        <div><small>기간</small><b>2024.02 – 현재</b></div>
+        <div><small>팀 구성</small><b>개인 (메인테이너)</b></div>
+        <div><small>역할</small><b>설계 · 개발 · 운영</b></div>
+        <div><small>기여도</small><b>85%</b><div class="bar"><i style="width:85%"></i></div></div>
+      </div>
+    </section>
+    <section class="sec"><h3>사용 기술</h3><div class="tags"><span>Go</span><span>HCL Parser</span><span>GitHub Actions</span><span>AWS Pricing API</span><span>OPA</span></div></section>
+    <section class="sec">
+      <h3>주요 기능 및 담당 역할</h3>
+      <ul class="list">
+        <li><code>terraform plan</code> 결과를 분석해 <b>월 예상 비용 변화</b>를 PR 코멘트로 표시</li>
+        <li>공개 S3 버킷, 과도한 IAM 권한 등 <b>보안 룰 40여 개</b> 내장, 커스텀 룰 지원</li>
+        <li>GitHub Action 마켓플레이스 배포, 문서 사이트 운영</li>
+      </ul>
+    </section>
+    <section class="sec">
+      <h3>문제 해결 경험</h3>
+      <div class="trouble">
+        <div class="ts">
+          <div class="ts-head"><em>ISSUE 1</em>대형 모노레포에서 분석 시간 초과</div>
+          <div class="ts-body">
+            <div class="ts-step"><b>문제</b><span>모듈이 수백 개인 저장소에서 분석이 10분을 넘겨 CI 타임아웃 발생</span></div>
+            <div class="ts-step"><b>시도</b><span>변경된 모듈과 의존 그래프만 추적하는 증분 분석 도입, 가격 조회 결과 로컬 캐시와 goroutine 병렬 처리</span></div>
+            <div class="ts-step"><b>결과</b><span>대형 저장소에서도 1분 안에 리뷰 완료</span></div>
+            <div class="ba"><span class="before">10분+</span>→<span class="after">48초</span><small>분석 시간</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="sec"><h3>링크</h3><div class="links"><a class="primary" href="https://github.com/" target="_blank" rel="noopener">GitHub 저장소 ↗</a><a href="#" target="_blank" rel="noopener">문서 사이트 ↗</a><a href="#" target="_blank" rel="noopener">데모 영상 ↗</a></div></section>
+  </article>
+
+  <div id="pager"></div>
+</main>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

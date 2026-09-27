@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Me | 김개발</title>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="about.html">
+<div class="aurora"><span></span><span></span><span></span></div>
+<nav id="toc"></nav>
+
+<main class="page">
+  <div class="eyebrow">02 — About Me</div>
+  <h1 class="title">안정성과 속도,<br>둘 다 챙기는 개발자</h1>
+  <p class="lead">MSA 전환, 대용량 메시지 처리, 검색 인프라 최적화를 직접 리드했습니다. 수치로 증명하는 개선을 좋아합니다.</p>
+
+  <section class="sec">
+    <h3>핵심 역량 (Highlights)</h3>
+    <ul class="list">
+      <li><b>분산 시스템 설계</b> — 모놀리스 → MSA 전환을 리드하며 이벤트 기반 아키텍처(Kafka, Outbox 패턴)를 도입했습니다.</li>
+      <li><b>대용량 트래픽 처리</b> — 일 2천만 건 알림 발송 플랫폼을 p99 80ms로 운영했습니다.</li>
+      <li><b>성능 최적화</b> — 쿼리 튜닝, 캐시 전략, 인덱스 설계로 주요 API 응답 시간을 평균 70% 단축했습니다.</li>
+      <li><b>인프라 자동화</b> — Terraform·GitHub Actions로 배포 시간을 40분에서 8분으로 줄였습니다.</li>
+    </ul>
+  </section>
+
+  <section class="sec">
+    <h3>기술 스택 (Tech Stack)</h3>
+    <div class="legend">
+      <span><i class="chip pro" style="padding:2px 8px">A</i> Proficient · 실무에서 주력으로 사용</span>
+      <span><i class="chip fam" style="padding:2px 8px">A</i> Familiar · 사용 경험 있음</span>
+    </div>
+    <div class="stack-table">
+      <div class="stack-row"><b>Backend</b><div class="lvl"><span class="chip pro">Kotlin</span><span class="chip pro">Spring Boot</span><span class="chip pro">Go</span><span class="chip pro">JPA</span><span class="chip fam">Node.js</span><span class="chip fam">Python</span></div></div>
+      <div class="stack-row"><b>Data</b><div class="lvl"><span class="chip pro">MySQL</span><span class="chip pro">Redis</span><span class="chip pro">Kafka</span><span class="chip fam">Elasticsearch</span><span class="chip fam">MongoDB</span></div></div>
+      <div class="stack-row"><b>DevOps</b><div class="lvl"><span class="chip pro">AWS</span><span class="chip pro">Docker</span><span class="chip pro">Kubernetes(EKS)</span><span class="chip pro">Terraform</span><span class="chip fam">ArgoCD</span><span class="chip fam">Prometheus/Grafana</span></div></div>
+      <div class="stack-row"><b>Frontend</b><div class="lvl"><span class="chip fam">TypeScript</span><span class="chip fam">React</span></div></div>
+      <div class="stack-row"><b>협업툴</b><div class="lvl"><span class="chip pro">Git/GitHub</span><span class="chip pro">Jira</span><span class="chip pro">Notion</span><span class="chip pro">Slack</span></div></div>
+    </div>
+  </section>
+
+  <div id="pager"></div>
+</main>
+
+<script src="assets/main.js"></script>
+</body>
+</html>
