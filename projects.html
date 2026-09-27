@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Projects | 김개발</title>
+<title>Projects | 한동민</title>
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -13,148 +13,131 @@
 
 <main class="page">
   <div class="eyebrow">03 — Projects</div>
-  <h1 class="title">핵심 프로젝트</h1>
-  <p class="lead">대표 프로젝트 3개를 개요, 담당 역할, 문제 해결 과정 순서로 정리했습니다.</p>
+  <h1 class="title">실패에서 시작해<br><span class="grad">수익을 내는 앱</span>까지</h1>
+  <p class="lead">공공데이터포털 API로 첫 앱을 만들고, 그 경험을 발판 삼아 교통 앱 시리즈를 키워 수익화에 성공했습니다. 지금은 해외 시장까지 넓혀 가고 있습니다.</p>
   <div class="proj-nav">
-    <a href="#p1">01 주문 시스템 MSA 전환</a>
-    <a href="#p2">02 실시간 알림 플랫폼</a>
-    <a href="#p3">03 tf-guard</a>
+    <a href="#transit">01 교통 앱 시리즈</a>
+    <a href="#global">02 글로벌 게임 앱</a>
   </div>
 
-  <!-- ─────────── PROJECT 01 ─────────── -->
-  <article class="project" id="p1">
-    <div class="p-no">PROJECT 01</div>
-    <h2>주문 시스템 MSA 전환</h2>
-    <p class="lead">트래픽 증가로 한계에 다다른 모놀리식 커머스 백엔드를 이벤트 기반 12개 서비스로 분리했습니다.</p>
-
-    <section class="sec">
-      <h3>프로젝트 개요</h3>
-      <div class="facts">
-        <div><small>기간</small><b>2023.03 – 2024.06</b></div>
-        <div><small>팀 구성</small><b>백엔드 6 · 인프라 2</b></div>
-        <div><small>역할</small><b>테크 리드</b></div>
-        <div><small>기여도</small><b>40%</b><div class="bar"><i style="width:40%"></i></div></div>
+  <!-- ─────────── 성장 스토리 ─────────── -->
+  <section class="sec">
+    <h3>성장 스토리</h3>
+    <div class="tl">
+      <div class="tl-item">
+        <div class="when">STEP 1 · 도전</div>
+        <h4>어디역? — 첫 번째 앱</h4>
+        <div class="sub">트래픽이 많은 공공데이터 API를 다뤄보기 위해 연습 삼아 만든 지하철 앱</div>
+        <ul class="list">
+          <li>수익화에는 실패했지만, <b>실시간 공공 API 연동과 앱 출시·운영 전 과정</b>을 처음부터 끝까지 경험했습니다.</li>
+        </ul>
       </div>
-    </section>
-    <section class="sec"><h3>사용 기술</h3><div class="tags"><span>Kotlin</span><span>Spring Boot</span><span>Kafka</span><span>MySQL</span><span>Redis</span><span>AWS EKS</span><span>Terraform</span></div></section>
-    <section class="sec">
-      <h3>주요 기능 및 담당 역할</h3>
-      <ul class="list">
-        <li>도메인 경계 설정(주문·결제·재고·배송)과 서비스 분리 로드맵 수립</li>
-        <li>Transactional Outbox 패턴으로 주문 이벤트 발행의 <b>정합성 보장</b></li>
-        <li>Strangler Fig 방식의 <b>무중단 점진 이관</b> 및 트래픽 섀도잉 검증</li>
-        <li>서비스별 SLO 정의, 분산 추적(OpenTelemetry) 도입</li>
-      </ul>
-    </section>
-    <section class="sec">
-      <h3>문제 해결 경험</h3>
-      <div class="trouble">
-        <div class="ts">
-          <div class="ts-head"><em>ISSUE 1</em>주문–재고 간 데이터 불일치</div>
-          <div class="ts-body">
-            <div class="ts-step"><b>문제</b><span>서비스 분리 후 DB 커밋과 Kafka 발행이 분리되어, 장애 시 재고가 차감되지 않은 주문이 하루 수십 건 발생</span></div>
-            <div class="ts-step"><b>시도</b><span>2PC는 성능 부담이 커서 제외하고, Outbox 테이블 + Debezium CDC로 이벤트 발행을 DB 트랜잭션에 묶음. 컨슈머는 멱등 키로 중복 처리 방지</span></div>
-            <div class="ts-step"><b>결과</b><span>불일치가 0건으로 수렴하고 수동 보정 작업이 사라짐</span></div>
-            <div class="ba"><span class="before">일 30건+</span>→<span class="after">0건</span><small>데이터 불일치</small></div>
+      <div class="tl-item">
+        <div class="when">STEP 2 · 확장</div>
+        <h4>버스타GO — 고트래픽 실시간 서비스</h4>
+        <div class="sub">첫 앱의 경험을 바탕으로 더 많은 사용자가 찾는 실시간 버스 정보 앱으로 확장</div>
+        <ul class="list">
+          <li>설치 수를 늘리며 다음 앱들을 알릴 수 있는 <b>사용자 기반</b>을 만들었습니다.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="when">STEP 3 · 수익화</div>
+        <h4>고속버스 · 공항버스 시간표</h4>
+        <div class="sub">버스타GO를 발판으로 출시한 후속 앱들</div>
+        <ul class="list">
+          <li><b>수익 전환에 성공</b>했고, 개발하는 기쁨과 재미를 느끼며 더 넓은 방향으로 계속 개발하고 있습니다.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── 01 교통 앱 시리즈 ─────────── -->
+  <div class="divider">Transit Apps</div>
+  <section class="group" id="transit">
+    <div class="group-head">
+      <div class="p-no">PROJECT 01</div>
+      <h2>교통 앱 시리즈</h2>
+      <p class="lead">공공데이터포털 API와 크롤링으로 실시간 교통 정보를 모아, 누구나 쉽게 쓸 수 있는 앱으로 만들었습니다.</p>
+    </div>
+
+    <div class="sec">
+      <div class="app-grid">
+        <a class="app wide" href="https://play.google.com/store/apps/details?id=com.dameulbit.busarrival" target="_blank" rel="noopener">
+          <img src="https://play-lh.googleusercontent.com/F08Rxnw-hyz-60L-PZBJO0WvMa7QsROeFEpDY2TKuC0fpvws6kwmDWacbH6g6y2OOHn5YYsDzP-wJ7PUUWtE=w240-h480" alt="버스타GO 아이콘">
+          <div class="info">
+            <span class="cat">실시간 버스 정보 · 대표 앱</span>
+            <h4>버스타GO</h4>
+            <p>실시간 버스 도착 정보, 주변 정류장, 노선도, 즐겨찾기를 한 곳에서 제공하는 대중교통 앱</p>
+            <div class="meta"><span class="badge">다운로드 1천+</span><span class="badge star">★ 4.7 (리뷰 12)</span><span class="badge">고트래픽 실시간 API</span></div>
+            <div class="store">Google Play에서 보기 ↗</div>
           </div>
-        </div>
-        <div class="ts">
-          <div class="ts-head"><em>ISSUE 2</em>세일 이벤트 시 주문 API 지연</div>
-          <div class="ts-body">
-            <div class="ts-step"><b>문제</b><span>타임세일 직후 재고 row에 락 경합이 몰려 p99 응답이 4초까지 증가</span></div>
-            <div class="ts-step"><b>시도</b><span>Redis Lua 스크립트로 재고 선차감 후 비동기 DB 반영, 요청 큐잉으로 DB 쓰기 평탄화</span></div>
-            <div class="ts-step"><b>결과</b><span>피크 TPS 3배 상황에서도 안정적인 응답 유지</span></div>
-            <div class="ba"><span class="before">p99 4.1s</span>→<span class="after">0.35s</span><small>주문 API 응답</small></div>
+        </a>
+
+        <a class="app" href="https://play.google.com/store/apps/details?id=com.dameulbit.busexpress" target="_blank" rel="noopener">
+          <img src="https://play-lh.googleusercontent.com/wKPK3mUMq9BfDZ_2hmcQOnGD7m7BNToGHcq0IVcscp-X18hM6Td5i33FiZrBUA2kiKOR92UAGBgmhe8EN3w3=w240-h480" alt="고속버스 시간표 아이콘">
+          <div class="info">
+            <span class="cat">고속버스</span>
+            <h4>고속버스 시간표</h4>
+            <p>전국 고속버스 시간표, 예매 가이드, 터미널·버스회사 연락처 제공</p>
+            <div class="meta"><span class="badge ok">수익화 성공</span><span class="badge">다운로드 1천+</span></div>
+            <div class="store">Google Play에서 보기 ↗</div>
           </div>
-        </div>
-      </div>
-    </section>
-    <section class="sec"><h3>링크</h3><div class="links"><a href="#" target="_blank" rel="noopener">기술 블로그 회고 ↗</a><a href="#" target="_blank" rel="noopener">발표 자료 ↗</a></div></section>
-  </article>
+        </a>
 
-  <!-- ─────────── PROJECT 02 ─────────── -->
-  <article class="project" id="p2">
-    <div class="p-no">PROJECT 02</div>
-    <h2>실시간 알림 플랫폼</h2>
-    <p class="lead">서비스마다 따로 구현되어 있던 푸시·SMS·이메일 발송을 하나의 플랫폼으로 통합했습니다.</p>
-
-    <section class="sec">
-      <h3>프로젝트 개요</h3>
-      <div class="facts">
-        <div><small>기간</small><b>2021.09 – 2022.08</b></div>
-        <div><small>팀 구성</small><b>백엔드 3</b></div>
-        <div><small>역할</small><b>설계 · 핵심 개발</b></div>
-        <div><small>기여도</small><b>60%</b><div class="bar"><i style="width:60%"></i></div></div>
-      </div>
-    </section>
-    <section class="sec"><h3>사용 기술</h3><div class="tags"><span>Go</span><span>gRPC</span><span>Redis Streams</span><span>MySQL</span><span>FCM/APNs</span><span>Prometheus</span></div></section>
-    <section class="sec">
-      <h3>주요 기능 및 담당 역할</h3>
-      <ul class="list">
-        <li>채널 공통 발송 API(gRPC) 설계 및 템플릿 엔진 개발</li>
-        <li>우선순위 큐 기반 <b>발송 스케줄러</b> — 인증번호 등 긴급 알림 우선 처리</li>
-        <li>사용자별 수신 설정·야간 발송 제한 등 정책 엔진 구현</li>
-      </ul>
-    </section>
-    <section class="sec">
-      <h3>문제 해결 경험</h3>
-      <div class="trouble">
-        <div class="ts">
-          <div class="ts-head"><em>ISSUE 1</em>대량 마케팅 발송이 인증번호를 지연시킴</div>
-          <div class="ts-body">
-            <div class="ts-step"><b>문제</b><span>단일 큐 구조에서 수백만 건 마케팅 발송이 몰리면 인증 문자가 수 분씩 늦게 도착</span></div>
-            <div class="ts-step"><b>시도</b><span>Redis Streams를 우선순위별로 분리하고 워커 풀을 가중치 기반으로 배분, 외부 벤더 호출에 토큰 버킷 레이트 리미터 적용</span></div>
-            <div class="ts-step"><b>결과</b><span>대량 발송 중에도 긴급 알림 지연 없음</span></div>
-            <div class="ba"><span class="before">최대 3분</span>→<span class="after">2초 이내</span><small>인증 알림 도착 시간</small></div>
+        <a class="app" href="https://play.google.com/store/apps/details?id=com.dameulbit.airportbus" target="_blank" rel="noopener">
+          <img src="https://play-lh.googleusercontent.com/mUMRqmX5D6YZ3YZiqH85kyN-ouWa4eZmcwAZ6trhI2iTtoYtnUlE6WBQJnjGIR2ikuvWEcbK9qR3Os2gc8PgFg=w240-h480" alt="공항버스 시간표 아이콘">
+          <div class="info">
+            <span class="cat">공항버스</span>
+            <h4>공항버스 시간표</h4>
+            <p>인천·김포 등 주요 공항버스 시간표와 예매 가이드, 실시간 환율, 여행 준비물 체크리스트</p>
+            <div class="meta"><span class="badge ok">수익화 성공</span><span class="badge">다운로드 1천+</span></div>
+            <div class="store">Google Play에서 보기 ↗</div>
           </div>
-        </div>
-      </div>
-    </section>
-    <section class="sec"><h3>링크</h3><div class="links"><a href="#" target="_blank" rel="noopener">아키텍처 문서 ↗</a><a href="#" target="_blank" rel="noopener">발표 영상 ↗</a></div></section>
-  </article>
+        </a>
 
-  <!-- ─────────── PROJECT 03 ─────────── -->
-  <article class="project" id="p3">
-    <div class="p-no">PROJECT 03 · OPEN SOURCE</div>
-    <h2>tf-guard</h2>
-    <p class="lead">Terraform PR에서 인프라 비용 증가와 보안 설정 누락을 자동으로 찾아 코멘트로 남겨주는 CLI 도구입니다.</p>
-
-    <section class="sec">
-      <h3>프로젝트 개요</h3>
-      <div class="facts">
-        <div><small>기간</small><b>2024.02 – 현재</b></div>
-        <div><small>팀 구성</small><b>개인 (메인테이너)</b></div>
-        <div><small>역할</small><b>설계 · 개발 · 운영</b></div>
-        <div><small>기여도</small><b>85%</b><div class="bar"><i style="width:85%"></i></div></div>
-      </div>
-    </section>
-    <section class="sec"><h3>사용 기술</h3><div class="tags"><span>Go</span><span>HCL Parser</span><span>GitHub Actions</span><span>AWS Pricing API</span><span>OPA</span></div></section>
-    <section class="sec">
-      <h3>주요 기능 및 담당 역할</h3>
-      <ul class="list">
-        <li><code>terraform plan</code> 결과를 분석해 <b>월 예상 비용 변화</b>를 PR 코멘트로 표시</li>
-        <li>공개 S3 버킷, 과도한 IAM 권한 등 <b>보안 룰 40여 개</b> 내장, 커스텀 룰 지원</li>
-        <li>GitHub Action 마켓플레이스 배포, 문서 사이트 운영</li>
-      </ul>
-    </section>
-    <section class="sec">
-      <h3>문제 해결 경험</h3>
-      <div class="trouble">
-        <div class="ts">
-          <div class="ts-head"><em>ISSUE 1</em>대형 모노레포에서 분석 시간 초과</div>
-          <div class="ts-body">
-            <div class="ts-step"><b>문제</b><span>모듈이 수백 개인 저장소에서 분석이 10분을 넘겨 CI 타임아웃 발생</span></div>
-            <div class="ts-step"><b>시도</b><span>변경된 모듈과 의존 그래프만 추적하는 증분 분석 도입, 가격 조회 결과 로컬 캐시와 goroutine 병렬 처리</span></div>
-            <div class="ts-step"><b>결과</b><span>대형 저장소에서도 1분 안에 리뷰 완료</span></div>
-            <div class="ba"><span class="before">10분+</span>→<span class="after">48초</span><small>분석 시간</small></div>
+        <a class="app wide" href="https://play.google.com/store/apps/details?id=com.dameulbit.subway" target="_blank" rel="noopener">
+          <img src="https://play-lh.googleusercontent.com/ktunf5drpdW5Uk9YJoXJazGApdrGsxqTZ4JW_Nch_IRztbD6cLLLT0Z0Qjz9i-gHG2RBP-b4pduXYvkV3wNe=w240-h480" alt="어디역? 아이콘">
+          <div class="info">
+            <span class="cat">지하철 · 첫 번째 앱</span>
+            <h4>어디역?</h4>
+            <p>수도권 지하철 실시간 도착, 요금, 빠른 환승 경로를 꼭 필요한 정보만 담아 보여주는 앱</p>
+            <div class="meta"><span class="badge try">첫 도전 · 학습용</span><span class="badge">다운로드 1천+</span><span class="badge star">★ 5.0 (리뷰 6)</span></div>
+            <div class="store">Google Play에서 보기 ↗</div>
           </div>
-        </div>
+        </a>
       </div>
-    </section>
-    <section class="sec"><h3>링크</h3><div class="links"><a class="primary" href="https://github.com/" target="_blank" rel="noopener">GitHub 저장소 ↗</a><a href="#" target="_blank" rel="noopener">문서 사이트 ↗</a><a href="#" target="_blank" rel="noopener">데모 영상 ↗</a></div></section>
-  </article>
+    </div>
 
-  <div id="pager"></div>
+    <section class="sec">
+      <h3>사용 기술</h3>
+      <div class="tags"><span>공공데이터포털 API</span><span>웹 크롤링</span><span>실시간 데이터 처리</span><span>AI 활용 백엔드</span><span>Google Play 배포·운영</span></div>
+    </section>
+  </section>
+
+  <!-- ─────────── 02 글로벌 게임 앱 ─────────── -->
+  <div class="divider">Global Game</div>
+  <section class="group" id="global">
+    <div class="group-head">
+      <div class="p-no">PROJECT 02</div>
+      <h2>글로벌 게임 앱</h2>
+      <p class="lead">한국 시장을 넘어 해외 사용자를 목표로 만든 퍼즐 게임입니다.</p>
+    </div>
+
+    <div class="sec">
+      <div class="app-grid">
+        <a class="app wide" href="https://play.google.com/store/apps/details?id=com.dameulbit.game2048" target="_blank" rel="noopener">
+          <img src="https://play-lh.googleusercontent.com/PAz7I9zrElr73TlWoLRLhIWJj31JAUQ7fsAPmSL8GCZf73P_cQwMPwkF932UbmXK0oj0wkvzRe0EBExnF7RJqys=w240-h480" alt="2048 Classic 아이콘">
+          <div class="info">
+            <span class="cat">Puzzle · Global</span>
+            <h4>2048 Classic: Number Puzzle</h4>
+            <p>4×4 보드에서 숫자 타일을 밀어 합치는 클래식 퍼즐. 오프라인 플레이와 목표 달성 후 무한 모드 지원</p>
+            <div class="meta"><span class="badge">해외 시장 타깃</span><span class="badge">다운로드 1천+</span></div>
+            <div class="store">Google Play에서 보기 ↗</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
 </main>
 
 <script src="assets/main.js"></script>
