@@ -4,9 +4,8 @@
    섹션을 추가·삭제·순서 변경하려면 이 배열만 수정하세요.
    ========================================================== */
 const SITE = {
-  brand: 'kimdev.',
-  email: 'hello@kimdev.io',
-  github: 'https://github.com/',
+  brand: 'dongmin.',                  // 왼쪽 상단 로고
+  email: 'h990309@naver.com',     // 목차 아래 Email 링크
 };
 
 const SECTIONS = [
