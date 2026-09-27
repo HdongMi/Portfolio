@@ -9,12 +9,12 @@ const SITE = {
 };
 
 const SECTIONS = [
-  { no:'01', label:'Intro',      ko:'인트로',        href:'intro.html',     desc:'이름, 직무, 한 문장 슬로건과 연락처' },
-  { no:'02', label:'About Me',   ko:'요약 프로필',    href:'about.html',     desc:'핵심 역량과 숙련도별 기술 스택' },
-  { no:'03', label:'Projects',   ko:'핵심 프로젝트',  href:'projects.html',  desc:'대표 프로젝트 3개와 문제 해결 경험' },
-  { no:'04', label:'Career',     ko:'경력 · 활동',    href:'career.html',    desc:'실무 경력, 오픈소스와 커뮤니티 활동' },
-  { no:'05', label:'Education',  ko:'교육 · 자격',    href:'education.html', desc:'학력, 교육 과정, 자격증과 어학' },
-  { no:'06', label:'Outro',      ko:'마무리',         href:'outro.html',     desc:'감사 인사와 앞으로의 비전' },
+  { no:'01', label:'Intro',      ko:'인트로',        href:'intro.html',     desc:'트렌드에 가장 먼저 올라타는 AI 활용 개발자 한동민' },
+  { no:'02', label:'About Me',   ko:'요약 프로필',    href:'about.html',     desc:'끈기·노련함·속도, 그리고 기술 스택' },
+  { no:'03', label:'Projects',   ko:'핵심 프로젝트',  href:'projects.html',  desc:'교통 앱 시리즈와 글로벌 게임 앱, 수익화까지의 성장 스토리' },
+  { no:'04', label:'Career',     ko:'경력 · 활동',    href:'career.html',    desc:'앱 기획부터 IT 지원까지의 실무 경력과 대외 활동' },
+  { no:'05', label:'Education',  ko:'교육 · 자격',    href:'education.html', desc:'컴퓨터공학 전공, 꾸준한 독학, 수상 경력' },
+  { no:'06', label:'Outro',      ko:'마무리',         href:'outro.html',     desc:'감사 인사와 앞으로의 포부' },
 ];
 
 (function () {
@@ -39,7 +39,6 @@ const SECTIONS = [
       </ol>
       <div class="foot">
         <a href="mailto:${SITE.email}">Email</a>
-        <a href="${SITE.github}" target="_blank" rel="noopener">GitHub</a>
       </div>`;
   }
 
