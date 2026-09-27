@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projects | 한동민</title>
-<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body data-page="projects.html">
@@ -14,8 +14,9 @@
 <main class="page">
   <div class="eyebrow">03 — Projects</div>
   <h1 class="title">실패에서 시작해<br><span class="grad">수익을 내는 앱</span>까지</h1>
-  <p class="lead">공공데이터포털 API로 첫 앱을 만들고, 그 경험을 발판 삼아 교통 앱 시리즈를 키워 수익화에 성공했습니다. 지금은 해외 시장까지 넓혀 가고 있습니다.</p>
+  <p class="lead">Kotlin으로 공공데이터포털 API를 활용한 첫 앱을 만들고, 그 경험을 발판 삼아 교통 앱 시리즈를 키워 수익화에 성공했습니다. 지금은 해외 시장까지 넓혀 가고 있습니다.</p>
   <div class="proj-nav">
+    <a href="#process">개발 프로세스</a>
     <a href="#transit">01 교통 앱 시리즈</a>
     <a href="#global">02 글로벌 게임 앱</a>
   </div>
@@ -51,6 +52,42 @@
     </div>
   </section>
 
+  <!-- ─────────── 개발 프로세스 ─────────── -->
+  <section class="rs-sec" id="process" style="scroll-margin-top:40px">
+    <h3>Development Process</h3>
+    <div class="rs-row">
+      <div class="y">01 기획·디자인</div>
+      <div><div class="t">화면 기획과 UI 디자인</div><div class="d">사용자 흐름과 화면 구성을 먼저 설계하고 디자인을 완성합니다.</div></div>
+      <div class="r">Figma</div>
+    </div>
+    <div class="rs-row">
+      <div class="y">02 에셋 제작</div>
+      <div><div class="t">앱 아이콘 · 스토어 홍보 이미지</div><div class="d">플레이스토어에 노출될 아이콘과 홍보 이미지를 AI로 빠르게 제작합니다.</div></div>
+      <div class="r">ChatGPT</div>
+    </div>
+    <div class="rs-row">
+      <div class="y">03 구조 설계</div>
+      <div><div class="t">앱 기초 뼈대 작성</div><div class="d">AI와 함께 Kotlin으로 화면 구조와 기본 코드 뼈대를 잡습니다.</div></div>
+      <div class="r">Claude · Kotlin</div>
+    </div>
+    <div class="rs-row">
+      <div class="y">04 데이터 연동</div>
+      <div><div class="t">공공데이터 API 연결</div><div class="d">공공데이터포털 API를 앱 뼈대에 연결해 실시간 정보를 불러옵니다.</div></div>
+      <div class="r">공공데이터포털</div>
+    </div>
+    <div class="rs-row">
+      <div class="y">05 기능 구현</div>
+      <div><div class="t">세부 기능 개발</div><div class="d">AI를 활용해 기능을 빠르게 구현하고 완성도를 높입니다.</div></div>
+      <div class="r">Claude · Kotlin</div>
+    </div>
+    <div class="rs-row">
+      <div class="y">06 검수</div>
+      <div><div class="t">직접 디버깅 · 반복 검수</div><div class="d">AI가 만든 코드를 그대로 쓰지 않고, 직접 테스트하며 문제를 찾아 고치는 검수 과정을 출시 전까지 반복합니다.</div></div>
+      <div class="r live">직접 수행</div>
+    </div>
+    <p class="rs-note">AI로 속도를 높이되, 품질에 대한 최종 판단과 책임은 직접 집니다. 이 과정을 반복해 앱을 꾸준히 출시하고 있습니다.</p>
+  </section>
+
   <!-- ─────────── 01 교통 앱 시리즈 ─────────── -->
   <div class="divider">Transit Apps</div>
   <section class="group" id="transit">
@@ -60,6 +97,7 @@
       <p class="lead">공공데이터포털 API와 크롤링으로 실시간 교통 정보를 모아, 누구나 쉽게 쓸 수 있는 앱으로 만들었습니다.</p>
     </div>
 
+    <div class="sec">
       <div class="app-grid">
         <a class="app wide" href="https://play.google.com/store/apps/details?id=com.dameulbit.subway" target="_blank" rel="noopener">
           <img src="https://play-lh.googleusercontent.com/ktunf5drpdW5Uk9YJoXJazGApdrGsxqTZ4JW_Nch_IRztbD6cLLLT0Z0Qjz9i-gHG2RBP-b4pduXYvkV3wNe=w240-h480" alt="어디역? 아이콘">
@@ -105,10 +143,11 @@
           </div>
         </a>
       </div>
+    </div>
 
     <section class="sec">
       <h3>사용 기술</h3>
-      <div class="tags"><span>공공데이터포털 API</span><span>웹 크롤링</span><span>실시간 데이터 처리</span><span>AI 활용 백엔드</span><span>Google Play 배포·운영</span></div>
+      <div class="tags"><span>Kotlin</span><span>Android</span><span>공공데이터포털 API</span><span>웹 크롤링</span><span>실시간 데이터 처리</span><span>Figma</span><span>Claude · ChatGPT</span><span>Google Play 배포·운영</span></div>
     </section>
   </section>
 
@@ -176,7 +215,7 @@
 
     <section class="sec">
       <h3>사용 기술</h3>
-      <div class="tags"><span>게임 로직 구현</span><span>AI 활용 개발</span><span>광고 수익화</span><span>Google Play 글로벌 배포</span></div>
+      <div class="tags"><span>Kotlin</span><span>Android</span><span>게임 로직 구현</span><span>Claude · ChatGPT</span><span>광고 수익화</span><span>Google Play 글로벌 배포</span></div>
     </section>
   </section>
 </main>
